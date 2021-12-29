@@ -11,37 +11,7 @@ import numpy as np
 import xcorr
 import scipy.signal as sgl
 import matplotlib.pyplot as plt
-
-
-def Autocorr(Es, Signal, Fe):
-
-    #initialisation
-    Pitchlist = [] 
-    #Energie = Energy(Signal)
-    
-    
-    SignalArr = np.array(Signal)                         #Passer en "array/list" facilite les calculs 
-    lags, c = xcorr(SignalArr, maxlags = int(Fe/50))          #on utilise la fonction donner sur moodle 
-    #plt.plot(c)
-                                                                     #on cherche les maxima
-    maxima, value = sgl.find_peaks(c, height=0, distance=45 ) #on utilise la fonction"find peaks" de la librairie "scipy", la distance permet d'éviter des erreurs
-    Mvalue = value['peak_heights']                            #L'affichage contient {'peak_heights':array([... ])}, on veut que "array"
-                                                                     # "maxima" = localisation des pics (selon x)
-    maxima = maxima.tolist()                                  # "value" = hauteur des pics
-                                                                     #on utilise la fonction "tolist()" pour convertir maxima en une "list"
-    Mvalue, maxima = zip(*sorted(zip(Mvalue, maxima)))        #triage croissant
-    D = len(maxima)
-    Dist = np.abs(maxima[D-1] - maxima[D-2])                  #on calcule la distance (selon x) séparant les 2 plus grand maxima (en valeur absolue)             
-    Ffdmtl = Fe/Dist                                          #on calcul la frequence fondamentale                                
-    Pitchlist.append(Ffdmtl)                                  #on l'ajoute à la liste         
-           
-                    
-    PitchArr = np.array(Pitchlist)                                    #Encore une fois, passer en "array/list" facilite les calculs
-    PitchArrMoy = abs(np.mean(PitchArr))                              #Calcul la moyenne  
-
-    return Pitchlist
-
-
+from utils import *
 
 
 F1 = 100
