@@ -1,7 +1,8 @@
 from scikit_talkbox_lpc import lpc_ref
 from xcorr import *
-import filterbanks
+from filterbanks import *
 import scipy.signal as signal
+import matplotlib.pyplot as plt
 
 
 # ************************ PRE PROCESSING ************************
@@ -250,7 +251,7 @@ def MFCC(Signal, Fe):
     
     # 3
     for i in range(len(frameslist)):
-      frame_hamm = sgl.hamming(len(frameslist[i]))
+      frame_hamm = signal.hamming(len(frameslist[i]))
       frameslist[i] *= frame_hamm
 
     # 4
@@ -264,7 +265,7 @@ def MFCC(Signal, Fe):
     Filterbanks = filter_banks(P, Fe, nfilt = 40, NFFT = Temp) 
     
     # 6
-    MFCCVect = dct(Filterbanks,type=2,axis=1,norm ='ortho') 
+    MFCCVect = signal.dct(Filterbanks,type=2,axis=1,norm ='ortho')
     # 7
     LastMFCC = MFCCVect[:, 0:12]
     plt.plot(MFCCVect)

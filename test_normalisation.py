@@ -1,4 +1,7 @@
 from utils import *
+import matplotlib.pyplot as plt
+from scipy.io import wavfile
+
 print('                                                                                                                                       ')
 print("************************ TEST DE LA NORMALISATION ************************")
 
@@ -45,7 +48,6 @@ print('\n')
 print('\n')
 
 
-from scipy.io import wavfile
 samplerate, data = wavfile.read('./arctic_a0007.wav')
 
 

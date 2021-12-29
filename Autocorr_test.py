@@ -1,16 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Dec 25 05:21:08 2021
 
-@author: gilbe
-"""
-
-import numpy as np
-
-#from Utilss import Energy
-import xcorr
-import scipy.signal as sgl
-import matplotlib.pyplot as plt
 from utils import *
 
 

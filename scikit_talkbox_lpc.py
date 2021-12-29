@@ -1,6 +1,4 @@
-#! /usr/bin/env python
 
-# Last Change: Wed Sep 24 05:00 PM 2008 J
 
 import numpy as np
 import scipy as sp

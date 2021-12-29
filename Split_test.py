@@ -1,11 +1,5 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Dec 25 03:38:19 2021
 
-@author: gilbe
-"""
-
-from Utilss import split 
+from utils import *
 
 
 #Test Tw = Tss 
